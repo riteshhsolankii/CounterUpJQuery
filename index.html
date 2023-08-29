@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter Up Custom JQuery</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="counter-up-main">
+        <div class="counterup" data-count="100">
+            <span>0</span><p>%</p>
+        </div>
+    </div>
+
+    <script>
+        $(".counterup span").each(function(){
+            let countup = $(this);
+            $({Count:countup.text()}).animate(
+                {Count: countup.parent().attr
+                ("data-count")},
+                {
+                    duration:2000,
+                    easing:"linear",
+                    step:function(){
+                        countup.text(Math.floor(this.Count))
+                    }
+                }
+            )
+        })
+    </script>
+</body>
+</html>
